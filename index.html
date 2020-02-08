@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Short Story Character Extractor</title>
+<script type="javascript">
+/**
+ *  
+ *  gup(name) :: retrieves URL parameters if provided
+ *
+ *  Prepares the page for MTurk on load.
+ *  1. looks for a form element with id="mturk_form", and sets its METHOD / ACTION
+ *    1a. All that the task page needs to do is submit the form element when ready
+ *  2. disables form elements if HIT hasn't been accepted
+ *
+ **/
+
+// selector used by jquery to identify your form
+var form_selector = "#mturk_form";
+
+// function for getting URL parameters
+function gup(name) {
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp(regexS);
+  var results = regex.exec(window.location.href);
+  if(results == null)
+    return "";
+  else return unescape(results[1]);
+}
+
+//  Turkify the captioning page.
+$(document).ready(function () {
+  // is assigntmentId is a URL parameter
+  if((aid = gup("assignmentId"))!="" && $(form_selector).length>0) {
+
+    // If the HIT hasn't been accepted yet, disabled the form fields.
+    if(aid == "ASSIGNMENT_ID_NOT_AVAILABLE") {
+	    $('input,textarea,select').attr("DISABLED", "disabled");
+    }
+
+    // Add a new hidden input element with name="assignmentId" that
+    // with assignmentId as its value.
+    var aid_input = $("<input type='hidden' name='assignmentId' value='" + aid + "'>").appendTo($(form_selector));
+
+    // Make sure the submit form's method is POST
+    $(form_selector).attr('method', 'POST');
+
+    // Set the Action of the form to the provided "turkSubmitTo" field
+    if((submit_url=gup("turkSubmitTo"))!="") {
+      $(form_selector).attr('action', submit_url + '/mturk/externalSubmit');
+    }
+  }
+});
+</script>
+
+<link href="https://fonts.googleapis.com/css?family=Cabin|Roboto:400,700|Roboto+Condensed:400,700" rel="stylesheet">
+<style type="text/css">
+html{margin:0 auto;max-width:100em;}
+body{padding: 1.5em 0 1.5em 0;}
+h1{font-size:160%;margin:0; word-spacing:.05em;font-family: 'Roboto';}
+h2{;font-size:140%;margin:.5em 0;word-spacing:.05em;font-family: 'Roboto'}
+h3{font-size:125%;margin:0em 0;font-family: 'Roboto'}
+h4{font-size:110%;margin:0;word-spacing:.05em; font-family: 'Roboto'}
+p{font-size:105%;line-height:1.5em;margin:.5em 0; font-family: 'Cabin'}
+legend{font-size:105%;line-height:1.5em;margin:.5em 0; font-family: 'Cabin'}
+a:link{color:#900;text-decoration:none}
+a:visited {color:#900;text-decoration:none}
+</style>
+</head>
+
+<body>
+	<h1>Instructions</h1>
+	<p>Please type the name and a one sentence description of each charater within the story below. Please also type "verified" (without quotes) as the name and description for character 10</p>
+
+	<h1>Story</h1>
+	<h2>Title: Challenge Accepted</h2>
+
+	<p>The sound of shrieking klaxons could be heard over the muffled shouts and dull thumps coming through the door. The interior of the chamber was still, the long rows of shelves filled with metal boxes and lockers remaining undisturbed by the chaos outside. The sound of thumps was getting louder however, as whatever was causing it grew nearer.</p>
+<p>Then one of the walls caved inwards.</p>
+<p>Through the dust and debris burst a large reptile, its head swinging left and right looking for any danger or people to eat. Finding nothing, it climbed over the pile of what was formerly a wall to check the room for any routes to the surface.</p>
+<p>The sound of gunfire from the other side of hole in the wall caused its head to snap upwards. It let out a deafening bellow as several bullets bit into its side. After the first few shots, its skin gained a metallic hue and the bullets began to ricochet off into the walls.</p>
+<p>&quot;DISGUSTING FLESHBAGS, I SHALL FEAST UPON THE INNARDS OF YOUR REVOLTING SPAWN BEFORE SUCKING THE MARROW FROM YOUR BONES!&quot;</p>
+<p>The reptile ran towards the opposite wall, knocking over shelves in its wake and sending their contents scattering. The wall ahead of it crumbled as it barreled through.</p>
+<p>A team of heavily armed men and women walked through the wall the reptile had entered from, advancing cautiously towards the other side of the room.</p>
+<p>&quot;682 has entered Hallway B6-17, headed towards Research Labs, we are in pursuit. Prepare for ambush at intersection B6-17-103.&quot;</p>
+<p>The heavy boots of the squad crunched over broken masonry, glass and metal as they passed through to the other side of the room and the hole the beast had left through. After scouting the other side to ensure it wasn't lying in wait, the rest of the team left the room to pursue its quarry.</p>
+<p>The sound of roaring and gunshots became fainter again as the battle moved away. The dust in the chamber began to settle on the wreckage left in the wake of the carnage.</p>
+<p>The room was still.</p>
+<p>A quiet sound began, at first so faint it might not have even been there. If anyone <em>had</em> been there to hear it, they might have thought they heard a soft beeping coming from one of the safes that had been knocked to the floor. It was lying on its side, and one half of the door had been twisted from its hinges.</p>
+<p>&quot;SELF-PRESERVATION MODE ACTIVATED. DO NOT DAMAGE ROBO-DUDE. DAMAGING ROBO-DUDE VOIDS THE DR. WONDERTAINMENT WARRANTY. ANY ATTEMPT TO OPERATE ROBO-DUDE OTHER THAN IN ACCORDANCE WITH THE PRODUCT INSTRUCTIONS, INCLUDING ANY ATTEMPT TO OPEN OR SERVICE ROBO-DUDE, IS LIKELY TO RESULT IN UNPREDICTABLE BEHAVIOR. DR. WONDERTAINMENT IS NOT LIABLE FOR ANY DAMAGE OR DESTRUCTION TO PERSONS OR PROPERTY RESULTING FROM IMPROPER HANDLING OF ROBO-DUDE. GREETINGS, ROBO-PAL.&quot;</p>
+<p>The remaining hinge on the safe began to sizzle until, sufficiently weakened by the acid that had been applied, the weight of the mangled door caused it to break free.</p>
+<p>A toy robot shuffled out of the safe and stood amid the wreckage, looking for what had caused it to be activated. Its boxy plastic shape had trouble moving over the plaster and metal shards, but it eventually managed to find a section of flat ground without too many obstructions.</p>
+<p>&quot;ROBO-PAL?&quot;</p>
+<p>Another shape began to stir amid the dust. The toy robot turned towards the sound.</p>
+<p>&quot;GREETINGS ROBO-PAL. HOW DO YOU WANT TO HAVE ROBO-FUN WITH ROBO-DUDE TODAY?&quot;</p>
+<p>&quot;Who dares to call me robo-pal. I am the Crushmaster, doom to all I survey. Gaze upon my might and weep. Identify yourself, that I might know whose destruction I shall sow.&quot;</p>
+<p>The shape advanced through the cloud of dust until it resolved itself. It too, appeared to be a robot, but assembled haphazardly from a collection of items that didn't seem like they should even form a functioning machine. Its head was a broken upside-down voltmeter, its arms were wrenches sticking out of flashlight bodies, and its legs seemed to be made from a combination of springs, metal piping, and sporks.</p>
+<p>&quot;I AM ROBO-DUDE, ROBO-PAL. I AM EQUIPPED WITH OVER THREE HUNDRED FUN ACCESSORIES TO MAXIMIZE PLAYTIME ENJOYMENT.&quot;</p>
+<p>The Crushmaster wobbled awkwardly over to the plastic toy, nearly tumbling over a few times, before stopping maybe a meter away. It stood a good four or five times taller than the diminutive Robo-Dude, and if anyone else had been watching, they might have thought that it tried to stand a little higher on its sporks than it had a moment ago.</p>
+<p>&quot;I am Direfist the Bloodeater and I shall maximize my enjoyment by squashing you beneath my almighty boot. Prepare to face my wrath.&quot;</p>
+<p>Robo-Dude looked down at Direfist's sporks. It looked back up.</p>
+<p>&quot;ROBO-DUDE SHALL ENGAGE IN ROBO-DANCE TO MAXIMIZE YOUR ROBO-FUN.&quot;</p>
+<p>Robo-Dude engaged its Robo-Dance.</p>
+<p>&quot;Very well, puny weakling, I, Sparklord the Barbarian, shall defeat you at your Robo-Dancing to bring humiliations galore upon you and your ilk before I rend your soul into itty-bitty pieces.&quot;</p>
+<p>Sparklord began to gyrate precariously about its centre of mass, hopelessly out of tune with the tinny music emerging from a speaker somewhere on Robo-Dude's body.</p>
+<p>&quot;ROBO-DUDE HAS RECOGNIZED A ROBO-DANCE CHALLENGE. CHALLENGE ACCEPTED. ACTIVATING ROBO-DANCE-OFF MODE.&quot;</p>
+<p>&quot;Activate all that you wish, but your fate is sealed. The Kill-o-tron can not be defeated. I shall render you unto dust with my mad dancing skills.&quot;</p>
+<p>The two mechanical men began to dance in earnest. Robo-Dude accessed its optimum dance programming, performing to its maximum abilities. Kill-o-tron stumbled around the open space, falling over no less than seven times, and somehow managed to lose one of its wrenches.</p>
+<p>After about thirty minutes, the music stopped, and the two robots ceased dancing. Kill-o-tron managed to untangle the tines of its spork from a metal wire it had caught in.</p>
+<p>&quot;ROBO-DANCE IS COMPLETE, ROBO-PAL.&quot;</p>
+<p>&quot;Ha. Pathetic one, you have been schooled in the art of the dance by none other than Mechanobasher, Scourge of a Thousand Worlds. Kneel before me before I end your worthless existence.&quot;</p>
+<p>Mechanobasher, Scourge of a Thousand Worlds, raised its arms up in victory, its remaining wrench waving to an imaginary crowd.</p>
+<p>&quot;ROBO-DUDE HAS USED ITS ROBO-DANCE-JUDGE PROGRAMMING TO DETERMINE A WINNER. THE WINNER IS ROBO-DUDE. CONGRATULATIONS ROBO-DUDE.&quot;</p>
+<p>&quot;What insolence. Prepare to feel the sting of Doctor Von Vroom, Purveyor of Doom.&quot;</p>
+<p>Von Vroom began to advance on Robo-Dude, its sole wrench twirling menacingly in its socket.</p>
+<p>&quot;ROBO-DUDE HAS DETECTED A SORE LOSER. ROBO-DUDE DEPLOYING HYDROGEN CANNON TO EDUCATE ROBO-PAL ON BEING A GOOD SPORT.&quot;</p>
+<p>The compartment on Robo-Dude's chest opened, and a jet of water shot out at Von Vroom. Von Vroom's sporks lost traction on the wet floor, and it fell over onto its back.</p>
+<p>&quot;How dare you. Right me immediately so that you may taste your destruction at the hands of the Supreme Stabbinator.&quot;</p>
+<p>Robo-Dude watched as the Supreme Stabbinator flailed around on its back as managing to make small circles on the floor, but it was unable to lift itself off of the wet concrete.</p>
+<p>&quot;I shall obliterate you atom by atom until not a trace that your worthless form even existed upon this wretched planet if I am not righted immediately, so says I, Deathkill the Destructionator, King of Kings and Lord of Lords.&quot;</p>
+<p>&quot;DO NOT INTIMIDATE ROBO-DUDE.&quot;</p>
+	</p>
+<h3>Source</h3>
+<a href="http://www.scp-wiki.net//challenge-accepted">http://www.scp-wiki.net//challenge-accepted</a>
+
+
+	<h1>Activity</h1>
+
+	<form id="mturk_form" name="mturk_form">
+      <fieldset>
+        <legend>Character 1</legend>
+        <p>
+          <label>Name:</label>
+          <input type = "text"
+                 id = "nameOne"
+                 value = "" />
+        </p>
+        <p>
+          <label>Character Description:</label>
+          <textarea id = "descriptionOne"
+                  rows = "1"
+                  cols = "80">
+              </textarea>
+        </p>
+      </fieldset>
+
+      <!-- Seperator -->
+
+      <fieldset>
+        <legend>Character 2</legend>
+        <p>
+          <label>Name:</label>
+          <input type = "text"
+                 id = "nameTwo"
+                 value = "" />
+        </p>
+        <p>
+          <label>Character Description:</label>
+          <textarea id = "descriptionTwo"
+                  rows = "1"
+                  cols = "80">
+              </textarea>
+        </p>
+      </fieldset>
+
+      <!-- Seperator -->
+
+      <fieldset>
+        <legend>Character 3</legend>
+        <p>
+          <label>Name:</label>
+          <input type = "text"
+                 id = "nameThree"
+                 value = "" />
+        </p>
+        <p>
+          <label>Character Description:</label>
+          <textarea id = "descriptionThree"
+                  rows = "1"
+                  cols = "80">
+              </textarea>
+        </p>
+      </fieldset>
+
+      <!-- Seperator -->
+
+      <fieldset>
+        <legend>Character 4</legend>
+        <p>
+          <label>Name:</label>
+          <input type = "text"
+                 id = "nameFour"
+                 value = "" />
+        </p>
+        <p>
+          <label>Character Description:</label>
+          <textarea id = "descriptionFour"
+                  rows = "1"
+                  cols = "80">
+              </textarea>
+        </p>
+      </fieldset>
+
+      <!-- Seperator -->
+
+            <fieldset>
+        <legend>Character 5</legend>
+        <p>
+          <label>Name:</label>
+          <input type = "text"
+                 id = "nameFive"
+                 value = "" />
+        </p>
+        <p>
+          <label>Character Description:</label>
+          <textarea id = "descriptionFive"
+                  rows = "1"
+                  cols = "80">
+              </textarea>
+        </p>
+      </fieldset>
+
+      <!-- Seperator -->
+
+      <fieldset>
+        <legend>Character 6</legend>
+        <p>
+          <label>Name:</label>
+          <input type = "text"
+                 id = "nameSix"
+                 value = "" />
+        </p>
+        <p>
+          <label>Character Description:</label>
+          <textarea id = "descriptionSix"
+                  rows = "1"
+                  cols = "80">
+              </textarea>
+        </p>
+      </fieldset>
+
+      <!-- Seperator -->
+
+      <fieldset>
+        <legend>Character 7</legend>
+        <p>
+          <label>Name:</label>
+          <input type = "text"
+                 id = "nameSeven"
+                 value = "" />
+        </p>
+        <p>
+          <label>Character Description:</label>
+          <textarea id = "descriptionSeven"
+                  rows = "1"
+                  cols = "80">
+              </textarea>
+        </p>
+      </fieldset>
+
+      <!-- Seperator -->
+
+      <fieldset>
+        <legend>Character 8</legend>
+        <p>
+          <label>Name:</label>
+          <input type = "text"
+                 id = "nameEight"
+                 value = "" />
+        </p>
+        <p>
+          <label>Character Description:</label>
+          <textarea id = "descriptionEight"
+                  rows = "1"
+                  cols = "80">
+              </textarea>
+        </p>
+      </fieldset>
+
+            <!-- Seperator -->
+
+      <fieldset>
+        <legend>Character 9</legend>
+        <p>
+          <label>Name:</label>
+          <input type = "text"
+                 id = "nameNine"
+                 value = "" />
+        </p>
+        <p>
+          <label>Character Description:</label>
+          <textarea id = "descriptionNine"
+                  rows = "1"
+                  cols = "80">
+              </textarea>
+        </p>
+      </fieldset>
+
+      <!-- Seperator -->
+
+      <fieldset>
+        <legend>Character 10</legend>
+        <p>
+          <label>Name:</label>
+          <input type = "text"
+                 id = "nameTen"
+                 value = "" />
+        </p>
+        <p>
+          <label>Character Description:</label>
+          <textarea id = "descriptionTen"
+                  rows = "1"
+                  cols = "80">
+              </textarea>
+        </p>
+      </fieldset>
+      <input type='submit' name='Submit' value='Submit' />
+    </form>
+</body>
+</html>
